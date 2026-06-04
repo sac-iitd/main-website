@@ -6,8 +6,6 @@ Redirect 301 /ourteam/ourteam.html /teams
 Redirect 301 /activities.html /activities
 Redirect 301 /contact.html /contact
 Redirect 301 /about.html /about
-Redirect 301 /index.html /
-
 # SPA fallback — send all non-file requests to index.html
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
