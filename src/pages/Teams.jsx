@@ -820,7 +820,7 @@ function Teams() {
           {defteam.slice(30, 36).map((person, idx) => <TeamCard key={idx} {...person} />)}
         </div>
 
-        <h2 className="text-2xl font-semibold text-center mb-6 text-[var(--text-color)] mt-10">PG Representatives</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6 text-[var(--text-color)] mt-10">Representatives</h2>
         <div className="w-5/6 flex flex-wrap justify-center gap-8 md:gap-20 m-4">
           {defteam.slice(36, 43).map((person, idx) => <TeamCard key={idx} {...person} />)}
         </div>
