@@ -1,0 +1,13 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+Redirect 301 /ourteam.html /teams
+Redirect 301 /ourteam/ourteam.html /teams
+Redirect 301 /activities.html /activities
+Redirect 301 /contact.html /contact
+Redirect 301 /about.html /about
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
