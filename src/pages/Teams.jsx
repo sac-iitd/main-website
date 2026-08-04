@@ -3,6 +3,7 @@ import TeamCard from "../components/ui/TeamCard";
 
 import PrasoonRaj from "../assets/team/PrasoonRaj.jpg"
 import defaultImage from "../assets/team/default.png"
+import GursheenKaurSudan from "../assets/team/GursheenKaurSudan.jpg"
 import KrishAgrawal from "../assets/team/KrishAgrawal.jpeg"
 import BavneetSinghBrar from "../assets/team/BavneetSinghBrar.png"
 import KeshavGupta from "../assets/team/KeshavGupta.jpg"
@@ -630,13 +631,14 @@ function Teams() {
       linkedin: "",
     },
     {
-      name: "",
+      name: "Gursheen Kaur Sudan",
       role: "BSW Deputy General Secretary (Men)",
-      image: defaultImage,
-      email: "",
+      image: GursheenKaurSudan,
+      email: "mailto:gursheenkaursudan@gmail.com",
       // phone: "",
-      instagram: "",
-      linkedin: "",
+      instagram: "https://www.instagram.com/sheen_k_",
+      sop: "https://docs.google.com/document/d/1TJ6LEfVxuu6VDCJTkgzUQMtFE6HRvHLG1g6q94c53bw/edit?usp=drivesdk",
+      linkedin: "https://www.linkedin.com/in/gursheenkaursudan",
     },
     {
       name: "Amol Gupta",
