@@ -49,6 +49,7 @@ function About() {
       { date: "6 NOVEMBER'24", href: "https://drive.google.com/file/d/1h1FLPHYTti1Y3FBsyMAK8ByM28pI0aKa/view?usp=sharing" },
     ],
     "2025-26": [
+      { date: "9 JANUARY'26", href: "https://drive.google.com/file/d/1TgF3T-fxl9sbjNfZyIay6SQKXN-K_fze/view?usp=sharing", special: true, label: "Special GBM" },
       { date: "17 MARCH'26", href: "https://drive.google.com/file/d/1V98wjXYqYnz85-ysC310Uy6F37tLGcKn/view?usp=sharing" },
     ],
   };
@@ -283,15 +284,23 @@ function About() {
                 <div
                   key={idx}
                   className="rounded-lg shadow p-5 text-center"
-                  style={{ backgroundColor: "var(--btn-color)" }}
+                  style={{ backgroundColor: m.special ? "#FFD700" : "var(--btn-color)" }}
                 >
-                  <div className="font-extrabold tracking-wide text-[var(--contact-btn-text)]">
+                  {m.label && (
+                    <div className="text-xs font-bold uppercase tracking-wide mb-1 text-[#26282c]">
+                      {m.label}
+                    </div>
+                  )}
+                  <div
+                    className="font-extrabold tracking-wide"
+                    style={{ color: m.special ? "#26282c" : "var(--contact-btn-text)" }}
+                  >
                     {m.date.toUpperCase()}
                   </div>
                   <a
                     href={m.href}
                     className="mt-3 inline-block underline"
-                    style={{ color: "var(--btn-confirmation)" }}
+                    style={{ color: m.special ? "#26282c" : "var(--btn-confirmation)" }}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
