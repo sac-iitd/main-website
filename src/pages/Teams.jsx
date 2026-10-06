@@ -30,7 +30,7 @@ import RohanGupta from "../assets/team/RohanGupta.jpg"
 import GaurangAgrawal from "../assets/team/GaurangAgarwal.jpeg"
 import AakashSingh from "../assets/team/AakashSingh.jpg"
 import DakshitaGarg from "../assets/team/DakshitaGarg.jpg"
-import ApoorvSharma from "../assets/team/ApoorvSharma.jpg"
+import DevanshGupta from "../assets/team/DevanshGupta.jpg"
 import SrishtiSahu from "../assets/team/SrishtiSahu.jpg"
 import NaitikSingla from "../assets/team/NaitikSingla.jpg"
 import AshwaryPrasad from "../assets/team/AshwaryPrasad.jpg"
@@ -44,7 +44,7 @@ import RachitAtulRambhia from "../assets/team/RachitAtulRambhia.png"
 import YuvrajSinghShekhawat from "../assets/team/YuvrajSinghShekhawat.jpg"
 import TusharSharma from "../assets/team/TusharSharma.jpg"
 import KanikaArya from "../assets/team/KanikaArya.jpeg"
-import NavneetSingh from "../assets/team/NavneetSingh.jpg"
+import KeeratpreetSingh from "../assets/team/KeeratpreetSingh.jpg"
 import AsthaAgrawal from "../assets/team/AsthaAgrawal.jpg"
 import AlokKumarSah from "../assets/team/AlokKumarSah.png"
 import SaarajGoel from "../assets/team/SaarajGoel.jpg"
@@ -63,7 +63,7 @@ import ADHM from "../assets/team/ADHM.jpg"
 import Utkarsh from "../assets/team/Utkarsh.jpeg"
 import ShaluDeshwal from "../assets/team/ShaluDeshwal.jpeg"
 import VaibhavSingh from "../assets/team/VaibhavSingh.jpeg"
-import Srijan from "../assets/team/Srijan.jpeg"
+import ShreyashSharma from "../assets/team/ShreyashSharma.jpg"
 
 
 import SHIVAMSaurabh from "../assets/team/SHIVAMSaurabh.jpg"
@@ -306,12 +306,13 @@ function Teams() {
 
 
     {
-      name: "Srijan",
+      name: "Shreyash Sharma",
       role: "Dronagiri SAC Secy",
-      image: Srijan,
-      email: "",
-      // phone: "",
-      instagram: "",
+      image: ShreyashSharma,
+      email: "mailto:cec252925@iitd.ac.in",
+      // phone: "8990830688",
+      instagram: "https://www.instagram.com/haaye_shreyash/",
+      sop: "https://drive.google.com/file/d/17-bKWamBav-uuiygwW9eJ_2hGvg_PG98/view?usp=drivesdk",
       linkedin: "",
     },
     {
@@ -570,14 +571,14 @@ function Teams() {
       linkedin: "https://linkedin.com/in/naitiksingla",
     },
     {
-      name: "Apoorv Sharma",
+      name: "Devansh Gupta",
       role: "BHM Deputy General Secretary (Maint)",
-      image: ApoorvSharma,
-      email: "mailto:ee3230996@iitd.ac.in",
-      // phone: "9783399711",
-      instagram: "https://www.instagram.com/a_p00rv/",
-      sop: "https://docs.google.com/document/d/11ZWWI8LwbMZ9v8FqQqNPGOrQHmmHyvpbJD3nLG7DZ_o/edit?usp=sharing",
-      linkedin: "https://www.linkedin.com/in/apoorv-sharma-ab0889288/",
+      image: DevanshGupta,
+      email: "mailto:me2230194@iitd.ac.in",
+      // phone: "6367201606",
+      instagram: "https://www.instagram.com/devanshgupta120/",
+      sop: "https://docs.google.com/document/d/1BtVkhyVBrdbfDJXpNIejwhk1yjRzy0AD/edit?usp=drivesdk&ouid=108993817184649143198&rtpof=true&sd=true",
+      linkedin: "https://www.linkedin.com/in/devansh-gupta-a10728286",
     },
     {
       name: "Hemang Mathur",
@@ -816,14 +817,14 @@ function Teams() {
       linkedin: "https://www.linkedin.com/in/isingh67",
     },
     {
-      name: "Navneet Singh",
+      name: "Keeratpreet Singh",
       role: "Dronagiri House Secy",
-      image: NavneetSingh,
-      email: "mailto:phm242162@iitd.ac.in",
-      // phone: "9896417084",
-      instagram: "https://www.instagram.com/sardar.navneetsingh/",
-      sop: "https://drive.google.com/file/d/1oJ5raxNYWo-GTmP3RdIczY2qDShDsVRl/view?usp=sharing",
-      linkedin: "https://www.linkedin.com/in/navneet-singh-b22878198",
+      image: KeeratpreetSingh,
+      email: "mailto:jcs252505@iitd.ac.in",
+      // phone: "9352397012",
+      instagram: "",
+      sop: "https://drive.google.com/file/d/18ukmdpFO0V3ax7thk6gcDeXf9dnXKSnB/view?usp=sharing",
+      linkedin: "https://www.linkedin.com/in/keeratpreet/",
     },
     {
       name: "Shalu Deshwal",
