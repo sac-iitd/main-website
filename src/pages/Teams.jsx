@@ -45,7 +45,7 @@ import YuvrajSinghShekhawat from "../assets/team/YuvrajSinghShekhawat.jpg"
 import TusharSharma from "../assets/team/TusharSharma.jpg"
 import KanikaArya from "../assets/team/KanikaArya.jpeg"
 import NavneetSingh from "../assets/team/NavneetSingh.jpg"
-import VANSHIKA from "../assets/team/VANSHIKA.jpg"
+import AsthaAgrawal from "../assets/team/AsthaAgrawal.jpg"
 import AlokKumarSah from "../assets/team/AlokKumarSah.png"
 import SaarajGoel from "../assets/team/SaarajGoel.jpg"
 import SagnikGhosh from "../assets/team/SagnikGhosh.jpg"
@@ -335,14 +335,14 @@ function Teams() {
       linkedin: "https://www.linkedin.com/in/abritty-kisku/",
     },
     {
-      name: "Vanshika",
+      name: "Astha Agrawal",
       role: "Nalanda SAC Secy",
-      image: VANSHIKA,
-      email: "mailto:mas257109@maths.iitd.ac.in",
-      // phone: "9592685498",
-      instagram: "https://www.instagram.com/_vanshika_111/",
-      sop: "https://drive.google.com/file/d/1DMYy0JioLiCHo4LYP-ZOGlJEPj_nFukl/view?usp=drivesdk",
-      linkedin: "https://www.linkedin.com/in/vanshika-garg-b24ab3375?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      image: AsthaAgrawal,
+      email: "mailto:hst254602@hss.iitd.ac.in",
+      // phone: "6389135799",
+      instagram: "https://www.instagram.com/iamnotpastxx/",
+      sop: "https://drive.google.com/file/d/1snZw7N8wLk8hL0OYxDHs1G35wS8iRl9w/view",
+      linkedin: "https://www.linkedin.com/in/astha-agrawal-b40827332/",
     },
 
     // ─── PG Representatives ───────────────────────────────────
