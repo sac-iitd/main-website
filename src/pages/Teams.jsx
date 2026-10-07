@@ -56,10 +56,10 @@ import RahulKumar from "../assets/team/RahulKumar.jpeg"
 import PushkinMangla from "../assets/team/PushkinMangla.jpeg"
 import GopalPrasadPatel from "../assets/team/GopalPrasadPatel.jpeg"
 import Director from "../assets/team/Director.jpg"
-import DSA from "../assets/team/DSA.png"
+import Pradyumna from "../assets/team/ADSE.jpg"
 import ADSW from "../assets/team/ADSW.jpg"
-import ADSE from "../assets/team/ADSE.jpg"
-import ADHM from "../assets/team/ADHM.jpg"
+import PunitSharma from "../assets/team/PunitSharma.jpg"
+import SudipPattanayek from "../assets/team/SudipPattanayek.jpg"
 import Utkarsh from "../assets/team/Utkarsh.jpeg"
 import ShaluDeshwal from "../assets/team/ShaluDeshwal.jpeg"
 import VaibhavSingh from "../assets/team/VaibhavSingh.jpeg"
@@ -101,9 +101,9 @@ function Teams() {
       linkedin: "",
     },
     {
-      name: "Prof. B. K. Panigrahi",
+      name: "Prof. S. Pradyumna",
       role: "Dean of Student Affairs",
-      image: DSA,
+      image: Pradyumna,
       email: "mailto:deansa@admin.iitd.ac.in",
       //phone: "0000000000",
       // instagram: "",
@@ -120,18 +120,18 @@ function Teams() {
       linkedin: "",
     },
     {
-      name: "Prof. S. Pradyumna",
+      name: "Prof. Punit Sharma",
       role: "Associate Dean Student Events",
-      image: ADSE,
+      image: PunitSharma,
       email: "mailto:adse@admin.iitd.ac.in",
       // phone: "0000000000",
       // instagram: "",
       linkedin: "",
     },
     {
-      name: "Prof. Prabal Talukdar",
+      name: "Prof. Sudip K. Pattanayek",
       role: "Associate Dean Hostel Management",
-      image: ADHM,
+      image: SudipPattanayek,
       email: "mailto:adhm@admin.iitd.ac.in",
       // phone: "0000000000",
       // instagram: "",
