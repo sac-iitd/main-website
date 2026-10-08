@@ -45,7 +45,7 @@ function Navbar() {
         </div>
         
         <div className="flex items-center">
-          <ul className="hidden md:flex flex-wrap gap-x-4 gap-y-2 mr-4">
+          <ul className="hidden md:flex flex-wrap items-center gap-x-4 gap-y-2 mr-4">
             <li>
               <Link to="/" className={linkClass}>
                 Home
@@ -70,6 +70,16 @@ function Navbar() {
               <Link to="/contact" className={linkClass}>
                 Contact
               </Link>
+            </li>
+            <li>
+              <a
+                href="https://sac.iitd.ac.in/nexus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full px-4 py-1.5 bg-[#FFD700] text-[#26282c] font-semibold text-sm sm:text-base hover:brightness-110 transition"
+              >
+                Nexus
+              </a>
             </li>
           </ul>
           {/*
@@ -144,6 +154,17 @@ function Navbar() {
             <Link to="/contact" className={linkClass} onClick={() => setMenuOpen(false)}>
               Contact
             </Link>
+          </li>
+          <li>
+            <a
+              href="https://sac.iitd.ac.in/nexus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-full px-4 py-1.5 bg-[#FFD700] text-[#26282c] font-semibold text-sm sm:text-base hover:brightness-110 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Nexus
+            </a>
           </li>
         </ul>
       </div>
