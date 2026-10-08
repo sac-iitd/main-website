@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import ClubCard from "../components/ui/ClubCard";
-import { FileText, Mail, MessageCircle, CalendarClock } from "lucide-react";
+import {
+  FileText,
+  Mail,
+  MessageCircle,
+  CalendarClock,
+  ScrollText,
+  Megaphone,
+  HandHelping,
+} from "lucide-react";
 
 // Import all images
 import backgroundImage from "../assets/activities/background_image.png";
@@ -191,32 +199,46 @@ function Home() {
       </section>
 
       {/* About Section */}
-      <section className=" px-4 my-10  w-100%  md:py-1 md:px-5  lg:py-2  lg:px-20 flex flex-col justify-center items-center">
-        <div 
-          className="shadow-lg rounded-xl  py-5  px-4 w-100%  md:w-[80vw] md:py-6  md:px-4     lg:w-[60vw] lg:py-6  lg:px-4   "
-          style={{ backgroundColor: 'var(--home-about-bg)', color: 'var(--text-color)' }}
+      <section className="px-4 my-10 w-100% md:py-1 md:px-5 lg:py-2 lg:px-20 flex flex-col justify-center items-center">
+        <div
+          className="shadow-lg rounded-xl overflow-hidden w-100% md:w-[80vw] lg:w-[60vw] border-t-4 border-[#FFD700]"
+          style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color-secondary)" }}
         >
-          <h2 className="text-3xl mb-12 md:text-4xl font-bold text-center mb-4 ">
-            ABOUT US
-          </h2>
-          <p className="md:text-xl mb-8 text-center mb-4 ">
-            Student Affairs Council is the apex student body of IIT Delhi. It is
-            responsible for:
-          </p>
-          <ul className="list-disc mb-8 list-inside mx-auto space-y-2 max-w-[100%] md:max-w-[70%] text-justify  ">
-            <li>
-              Formulating policies pertaining to all non-academic student
-              affairs.
-            </li>
-            <li>
-              Presenting student views on issues of collective concern through
-              representation in various policy and decision-making bodies.
-            </li>
-            <li>
-              Addressing students' problems through the institutional framework
-              of IIT Delhi.
-            </li>
-          </ul>
+          <div className="py-8 px-5 md:py-10 md:px-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-wide">ABOUT US</h2>
+            <hr className="mx-auto mt-3 mb-6 w-16 border-t-2 border-[#FFD700]" />
+            <p className="md:text-xl max-w-2xl mx-auto opacity-90">
+              Student Affairs Council is the apex student body of IIT Delhi. It is
+              responsible for:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8">
+              {[
+                {
+                  icon: ScrollText,
+                  text: "Formulating policies pertaining to all non-academic student affairs.",
+                },
+                {
+                  icon: Megaphone,
+                  text: "Presenting student views on issues of collective concern through representation in various policy and decision-making bodies.",
+                },
+                {
+                  icon: HandHelping,
+                  text: "Addressing students' problems through the institutional framework of IIT Delhi.",
+                },
+              ].map(({ icon: Icon, text }) => (
+                <div
+                  key={text}
+                  className="flex flex-col items-center gap-3 rounded-lg p-5 bg-white/5 border border-white/10 hover:border-[#FFD700]/60 transition-colors"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#FFD700]/15">
+                    <Icon className="w-6 h-6 text-[#FFD700]" />
+                  </div>
+                  <p className="text-sm md:text-base leading-relaxed opacity-90">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
