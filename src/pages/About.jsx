@@ -1,5 +1,18 @@
 import React, { useRef, useState } from "react";
-import { DownloadCloud, ChevronLeft, ChevronRight, X } from "lucide-react";
+import {
+  DownloadCloud,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  ArrowLeft,
+  HeartPulse,
+  Users,
+  Presentation,
+  UserRoundPlus,
+  RefreshCw,
+  ClipboardCheck,
+  GraduationCap,
+} from "lucide-react";
 import ProjectCard from "../components/ui/ProjectCard";
 
 function About() {
@@ -12,10 +25,68 @@ function About() {
     "2023-24",
     "2024-25",
     "2025-26",
+    "2026-27",
   ];
   const mmScrollRef = useRef(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeUpdate, setActiveUpdate] = useState(null);
+
+  const closeMinutes = () => {
+    setIsModalOpen(false);
+    setActiveUpdate(null);
+  };
+
+  const wellbeingUpdate = {
+    title: "Student Wellbeing",
+    kicker: "General Body Meeting",
+    date: "1 September 2026",
+    place: "Library Reading Room",
+    intro:
+      "Students raised concerns about wellbeing at this meeting. These are the steps taken since then.",
+    note: "Student representatives have been central to this work. Student Affairs, with the Infrastructure Unit, Hostel Administration, and student representatives, is also taking up hostel facilities. An update on those steps is expected shortly.",
+    source: "Prof. S. Pradyumna, Dean of Student Affairs",
+    items: [
+      {
+        icon: Users,
+        title: "Male counsellors and clinical psychologists",
+        body: "An advertisement for two Clinical Psychologists and two Male Counsellors, under the IITD MI Project at the Hospital, was published on 9 September 2026. Applications have been shortlisted, and selection is expected to finish this month.",
+      },
+      {
+        icon: Presentation,
+        title: "Sensitisation for faculty and staff",
+        body: "A committee is engaging an external organisation to run regular mental-health workshops for faculty and staff. An expression of interest was advertised, and three agencies have applied. Discussions with them are underway. The Training Section will coordinate the sessions.",
+      },
+      {
+        icon: HeartPulse,
+        title: "Three-day sensitisation workshop",
+        body: "A one-time workshop under an MoU with HET Education Trust, “IITD Faculty & Staff Sensitization and Heartful Habituation Workshop,” was held on 16, 17, and 18 September 2026 in Dogra Hall. Each session lasted 1.5 hours.",
+      },
+      {
+        icon: UserRoundPlus,
+        title: "Support after a long medical leave",
+        body: "A committee of the IITD Hospital, the Counselling Service, student representatives, and the student’s mentor will help students resume at IIT Delhi after a long medical leave. Members sign a non-disclosure agreement before each meeting.",
+      },
+      {
+        icon: RefreshCw,
+        title: "YourDOST counselling renewed",
+        body: "Online counselling through YourDOST has been renewed for IIT Delhi students. QR-code access has been shared with students, faculty, and staff. YourDOST will also hold workshops and webinars on Suicide Prevention Day, during Mental Health Week, around placements, and during elections for student representatives.",
+      },
+      {
+        icon: ClipboardCheck,
+        title: "Review of wellbeing protocols",
+        points: [
+          "Discussions are underway with NIMHANS, Bengaluru, on counsellor training and expert review of medical cases.",
+          "Some alumni have volunteered to support student wellbeing. Suitable people and agencies are being identified to add counselling and psychiatric support.",
+        ],
+      },
+      {
+        icon: GraduationCap,
+        title: "Mentors for PG students",
+        body: "Mentors have been allotted to postgraduate students for this semester.",
+      },
+    ],
+  };
 
   // Distinct sample dates per academic year (replace hrefs with real links later)
   const meetingData = {
@@ -51,6 +122,14 @@ function About() {
     "2025-26": [
       { date: "9 JANUARY'26", href: "https://drive.google.com/file/d/1TgF3T-fxl9sbjNfZyIay6SQKXN-K_fze/view?usp=sharing", special: true, label: "Special GBM" },
       { date: "17 MARCH'26", href: "https://drive.google.com/file/d/1V98wjXYqYnz85-ysC310Uy6F37tLGcKn/view?usp=sharing" },
+    ],
+    "2026-27": [
+      {
+        date: "1 SEPTEMBER'26",
+        special: true,
+        label: "Wellbeing Update",
+        update: wellbeingUpdate,
+      },
     ],
   };
 
@@ -223,6 +302,7 @@ function About() {
                     key={y}
                     type="button"
                     onClick={() => {
+                      setActiveUpdate(null);
                       setSelectedYear(y);
                       setIsModalOpen(true);
                     }}
@@ -252,63 +332,150 @@ function About() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="mm-title"
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/50"
-            onClick={() => setIsModalOpen(false)}
+            onClick={closeMinutes}
           />
-          {/* Modal content */}
           <div
-            className="relative z-10 w-11/12 max-w-4xl rounded-xl shadow-lg p-6"
+            className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg p-5 md:p-7"
             style={{ backgroundColor: "var(--contact-form-bg)" }}
           >
             <button
               type="button"
-              onClick={() => setIsModalOpen(false)}
+              onClick={closeMinutes}
               aria-label="Close"
               className="absolute right-3 top-3 p-1 rounded-full hover:brightness-110"
               style={{ backgroundColor: "var(--contact-form-input-bg)" }}
             >
               <X className="w-5 h-5 text-[var(--text-color)]" />
             </button>
-            <h3
-              id="mm-title"
-              className="text-xl md:text-2xl font-bold text-center mb-6 text-[var(--text-color)]"
-            >
-              Minutes of Meetings — {selectedYear}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {(meetingData[selectedYear] || []).map((m, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-lg shadow p-5 text-center"
-                  style={{ backgroundColor: m.special ? "#FFD700" : "var(--btn-color)" }}
+
+            {activeUpdate ? (
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setActiveUpdate(null)}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--text-color)] mb-5 hover:underline"
                 >
-                  {m.label && (
-                    <div className="text-xs font-bold uppercase tracking-wide mb-1 text-[#26282c]">
-                      {m.label}
-                    </div>
-                  )}
-                  <div
-                    className="font-extrabold tracking-wide"
-                    style={{ color: m.special ? "#26282c" : "var(--contact-btn-text)" }}
-                  >
-                    {m.date.toUpperCase()}
-                  </div>
-                  <a
-                    href={m.href}
-                    className="mt-3 inline-block underline"
-                    style={{ color: m.special ? "#26282c" : "var(--btn-confirmation)" }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    See Details
-                  </a>
+                  <ArrowLeft className="w-4 h-4" />
+                  {selectedYear}
+                </button>
+                <p className="text-xs md:text-sm font-semibold tracking-wide uppercase text-[var(--text-color)] opacity-70">
+                  {activeUpdate.kicker}
+                </p>
+                <h3
+                  id="mm-title"
+                  className="text-2xl md:text-3xl font-bold text-[var(--text-color)] mt-1"
+                >
+                  {activeUpdate.title}
+                </h3>
+                <p className="mt-2 text-sm md:text-base font-medium text-[var(--text-color)]">
+                  {activeUpdate.date}
+                  <span className="opacity-60"> · {activeUpdate.place}</span>
+                </p>
+                <p className="mt-4 md:text-lg text-[var(--text-color)]">
+                  {activeUpdate.intro}
+                </p>
+                <div className="mt-6 space-y-3">
+                  {activeUpdate.items.map((item, idx) => {
+                    const Icon = item.icon;
+                    return (
+                      <article
+                        key={item.title}
+                        className="rounded-xl p-4 md:p-5"
+                        style={{ backgroundColor: "var(--contact-form-input-bg)" }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--btn-color)] text-[var(--contact-btn-text)]">
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <div className="min-w-0">
+                            <h4 className="font-bold text-[var(--text-color)]">
+                              {idx + 1}. {item.title}
+                            </h4>
+                            {item.body && (
+                              <p className="mt-1.5 text-sm md:text-base text-[var(--text-color)] opacity-90">
+                                {item.body}
+                              </p>
+                            )}
+                            {item.points && (
+                              <ul className="mt-2 space-y-2 text-sm md:text-base text-[var(--text-color)] opacity-90">
+                                {item.points.map((point) => (
+                                  <li key={point} className="flex gap-2">
+                                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--btn-color)]" />
+                                    <span>{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
+                <div className="mt-5 rounded-xl border border-[var(--btn-color)]/60 p-4 md:p-5">
+                  <p className="text-sm md:text-base text-[var(--text-color)]">
+                    {activeUpdate.note}
+                  </p>
+                  <p className="mt-3 text-sm font-semibold text-[var(--text-color)]">
+                    {activeUpdate.source}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <>
+                <h3
+                  id="mm-title"
+                  className="text-xl md:text-2xl font-bold text-center mb-6 text-[var(--text-color)]"
+                >
+                  Minutes of Meetings — {selectedYear}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {(meetingData[selectedYear] || []).map((m, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-lg shadow p-5 text-center"
+                      style={{ backgroundColor: m.special ? "#FFD700" : "var(--btn-color)" }}
+                    >
+                      {m.label && (
+                        <div className="text-xs font-bold uppercase tracking-wide mb-1 text-[#26282c]">
+                          {m.label}
+                        </div>
+                      )}
+                      <div
+                        className="font-extrabold tracking-wide"
+                        style={{ color: m.special ? "#26282c" : "var(--contact-btn-text)" }}
+                      >
+                        {m.date.toUpperCase()}
+                      </div>
+                      {m.update ? (
+                        <button
+                          type="button"
+                          onClick={() => setActiveUpdate(m.update)}
+                          className="mt-3 inline-block underline font-semibold"
+                          style={{ color: "#26282c" }}
+                        >
+                          Read Update
+                        </button>
+                      ) : (
+                        <a
+                          href={m.href}
+                          className="mt-3 inline-block underline"
+                          style={{ color: m.special ? "#26282c" : "var(--btn-confirmation)" }}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          See Details
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
