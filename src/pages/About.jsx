@@ -3,6 +3,7 @@ import {
   DownloadCloud,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   X,
   HeartPulse,
   Users,
@@ -28,6 +29,7 @@ function About() {
   const mmScrollRef = useRef(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [wellbeingOpen, setWellbeingOpen] = useState(false);
 
   const wellbeingUpdate = {
     title: "Student Wellbeing",
@@ -311,28 +313,39 @@ function About() {
         </section>
       </div>
 
-      <div
-        className="md:w-[900px] py-8 px-4 md:px-6 md:mx-auto shadow-lg rounded-xl mt-16"
-        style={{ backgroundColor: "var(--contact-form-bg)" }}
-      >
-        <section>
-          <div className="flex justify-center mb-6">
-            <div className="h-1 w-20 bg-[var(--btn-color)] rounded-full"></div>
-          </div>
-          <p className="text-center text-xs md:text-sm font-semibold tracking-wide uppercase text-[var(--text-color)] opacity-70">
-            {wellbeingUpdate.kicker}
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-center mt-1 text-[var(--text-color)]">
-            {wellbeingUpdate.title}
-          </h2>
-          <p className="mt-2 text-center text-sm md:text-base font-medium text-[var(--text-color)]">
+      <div className="md:w-[900px] mt-8 md:mx-auto">
+        <button
+          type="button"
+          onClick={() => setWellbeingOpen((open) => !open)}
+          aria-expanded={wellbeingOpen}
+          className="w-full flex items-center justify-between gap-4 rounded-xl shadow-lg px-5 py-4 text-left hover:brightness-[0.98]"
+          style={{ backgroundColor: "var(--contact-form-bg)" }}
+        >
+          <span>
+            <span className="block text-xs font-semibold tracking-wide uppercase text-[var(--text-color)] opacity-70">
+              {wellbeingUpdate.kicker} · {wellbeingUpdate.date}
+            </span>
+            <span className="mt-0.5 block text-lg md:text-xl font-bold text-[var(--text-color)]">
+              {wellbeingUpdate.title}
+            </span>
+          </span>
+          <ChevronDown
+            className={`w-5 h-5 shrink-0 text-[var(--text-color)] transition-transform ${wellbeingOpen ? "rotate-180" : ""}`}
+          />
+        </button>
+        {wellbeingOpen && (
+        <section
+          className="mt-3 rounded-xl shadow-lg px-4 py-5 md:px-6"
+          style={{ backgroundColor: "var(--contact-form-bg)" }}
+        >
+          <p className="text-sm md:text-base font-medium text-[var(--text-color)]">
             {wellbeingUpdate.date}
             <span className="opacity-60"> · {wellbeingUpdate.place}</span>
           </p>
-          <p className="mt-4 text-center md:text-lg text-[var(--text-color)] max-w-3xl mx-auto">
+          <p className="mt-3 md:text-lg text-[var(--text-color)]">
             {wellbeingUpdate.intro}
           </p>
-          <div className="mt-6 space-y-3">
+          <div className="mt-5 space-y-3">
             {wellbeingUpdate.items.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -379,6 +392,7 @@ function About() {
             </p>
           </div>
         </section>
+        )}
       </div>
 
       {isModalOpen && (
