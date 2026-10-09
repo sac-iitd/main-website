@@ -4,7 +4,6 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  ArrowLeft,
   HeartPulse,
   Users,
   Presentation,
@@ -25,17 +24,10 @@ function About() {
     "2023-24",
     "2024-25",
     "2025-26",
-    "2026-27",
   ];
   const mmScrollRef = useRef(null);
   const [selectedYear, setSelectedYear] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeUpdate, setActiveUpdate] = useState(null);
-
-  const closeMinutes = () => {
-    setIsModalOpen(false);
-    setActiveUpdate(null);
-  };
 
   const wellbeingUpdate = {
     title: "Student Wellbeing",
@@ -122,14 +114,6 @@ function About() {
     "2025-26": [
       { date: "9 JANUARY'26", href: "https://drive.google.com/file/d/1TgF3T-fxl9sbjNfZyIay6SQKXN-K_fze/view?usp=sharing", special: true, label: "Special GBM" },
       { date: "17 MARCH'26", href: "https://drive.google.com/file/d/1V98wjXYqYnz85-ysC310Uy6F37tLGcKn/view?usp=sharing" },
-    ],
-    "2026-27": [
-      {
-        date: "1 SEPTEMBER'26",
-        special: true,
-        label: "Wellbeing Update",
-        update: wellbeingUpdate,
-      },
     ],
   };
 
@@ -302,7 +286,6 @@ function About() {
                     key={y}
                     type="button"
                     onClick={() => {
-                      setActiveUpdate(null);
                       setSelectedYear(y);
                       setIsModalOpen(true);
                     }}
@@ -327,6 +310,77 @@ function About() {
           </div>
         </section>
       </div>
+
+      <div
+        className="md:w-[900px] py-8 px-4 md:px-6 md:mx-auto shadow-lg rounded-xl mt-16"
+        style={{ backgroundColor: "var(--contact-form-bg)" }}
+      >
+        <section>
+          <div className="flex justify-center mb-6">
+            <div className="h-1 w-20 bg-[var(--btn-color)] rounded-full"></div>
+          </div>
+          <p className="text-center text-xs md:text-sm font-semibold tracking-wide uppercase text-[var(--text-color)] opacity-70">
+            {wellbeingUpdate.kicker}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mt-1 text-[var(--text-color)]">
+            {wellbeingUpdate.title}
+          </h2>
+          <p className="mt-2 text-center text-sm md:text-base font-medium text-[var(--text-color)]">
+            {wellbeingUpdate.date}
+            <span className="opacity-60"> · {wellbeingUpdate.place}</span>
+          </p>
+          <p className="mt-4 text-center md:text-lg text-[var(--text-color)] max-w-3xl mx-auto">
+            {wellbeingUpdate.intro}
+          </p>
+          <div className="mt-6 space-y-3">
+            {wellbeingUpdate.items.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <article
+                  key={item.title}
+                  className="rounded-xl p-4 md:p-5"
+                  style={{ backgroundColor: "var(--contact-form-input-bg)" }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--btn-color)] text-[var(--contact-btn-text)]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-[var(--text-color)]">
+                        {idx + 1}. {item.title}
+                      </h3>
+                      {item.body && (
+                        <p className="mt-1.5 text-sm md:text-base text-[var(--text-color)] opacity-90">
+                          {item.body}
+                        </p>
+                      )}
+                      {item.points && (
+                        <ul className="mt-2 space-y-2 text-sm md:text-base text-[var(--text-color)] opacity-90">
+                          {item.points.map((point) => (
+                            <li key={point} className="flex gap-2">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--btn-color)]" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className="mt-5 rounded-xl border border-[var(--btn-color)]/60 p-4 md:p-5">
+            <p className="text-sm md:text-base text-[var(--text-color)]">
+              {wellbeingUpdate.note}
+            </p>
+            <p className="mt-3 text-sm font-semibold text-[var(--text-color)]">
+              {wellbeingUpdate.source}
+            </p>
+          </div>
+        </section>
+      </div>
+
       {isModalOpen && (
         <div
           role="dialog"
@@ -336,146 +390,57 @@ function About() {
         >
           <div
             className="absolute inset-0 bg-black/50"
-            onClick={closeMinutes}
+            onClick={() => setIsModalOpen(false)}
           />
           <div
-            className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg p-5 md:p-7"
+            className="relative z-10 w-11/12 max-w-4xl rounded-xl shadow-lg p-6"
             style={{ backgroundColor: "var(--contact-form-bg)" }}
           >
             <button
               type="button"
-              onClick={closeMinutes}
+              onClick={() => setIsModalOpen(false)}
               aria-label="Close"
               className="absolute right-3 top-3 p-1 rounded-full hover:brightness-110"
               style={{ backgroundColor: "var(--contact-form-input-bg)" }}
             >
               <X className="w-5 h-5 text-[var(--text-color)]" />
             </button>
-
-            {activeUpdate ? (
-              <div>
-                <button
-                  type="button"
-                  onClick={() => setActiveUpdate(null)}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--text-color)] mb-5 hover:underline"
+            <h3
+              id="mm-title"
+              className="text-xl md:text-2xl font-bold text-center mb-6 text-[var(--text-color)]"
+            >
+              Minutes of Meetings — {selectedYear}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {(meetingData[selectedYear] || []).map((m, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-lg shadow p-5 text-center"
+                  style={{ backgroundColor: m.special ? "#FFD700" : "var(--btn-color)" }}
                 >
-                  <ArrowLeft className="w-4 h-4" />
-                  {selectedYear}
-                </button>
-                <p className="text-xs md:text-sm font-semibold tracking-wide uppercase text-[var(--text-color)] opacity-70">
-                  {activeUpdate.kicker}
-                </p>
-                <h3
-                  id="mm-title"
-                  className="text-2xl md:text-3xl font-bold text-[var(--text-color)] mt-1"
-                >
-                  {activeUpdate.title}
-                </h3>
-                <p className="mt-2 text-sm md:text-base font-medium text-[var(--text-color)]">
-                  {activeUpdate.date}
-                  <span className="opacity-60"> · {activeUpdate.place}</span>
-                </p>
-                <p className="mt-4 md:text-lg text-[var(--text-color)]">
-                  {activeUpdate.intro}
-                </p>
-                <div className="mt-6 space-y-3">
-                  {activeUpdate.items.map((item, idx) => {
-                    const Icon = item.icon;
-                    return (
-                      <article
-                        key={item.title}
-                        className="rounded-xl p-4 md:p-5"
-                        style={{ backgroundColor: "var(--contact-form-input-bg)" }}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--btn-color)] text-[var(--contact-btn-text)]">
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <div className="min-w-0">
-                            <h4 className="font-bold text-[var(--text-color)]">
-                              {idx + 1}. {item.title}
-                            </h4>
-                            {item.body && (
-                              <p className="mt-1.5 text-sm md:text-base text-[var(--text-color)] opacity-90">
-                                {item.body}
-                              </p>
-                            )}
-                            {item.points && (
-                              <ul className="mt-2 space-y-2 text-sm md:text-base text-[var(--text-color)] opacity-90">
-                                {item.points.map((point) => (
-                                  <li key={point} className="flex gap-2">
-                                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--btn-color)]" />
-                                    <span>{point}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-                <div className="mt-5 rounded-xl border border-[var(--btn-color)]/60 p-4 md:p-5">
-                  <p className="text-sm md:text-base text-[var(--text-color)]">
-                    {activeUpdate.note}
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-[var(--text-color)]">
-                    {activeUpdate.source}
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <>
-                <h3
-                  id="mm-title"
-                  className="text-xl md:text-2xl font-bold text-center mb-6 text-[var(--text-color)]"
-                >
-                  Minutes of Meetings — {selectedYear}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {(meetingData[selectedYear] || []).map((m, idx) => (
-                    <div
-                      key={idx}
-                      className="rounded-lg shadow p-5 text-center"
-                      style={{ backgroundColor: m.special ? "#FFD700" : "var(--btn-color)" }}
-                    >
-                      {m.label && (
-                        <div className="text-xs font-bold uppercase tracking-wide mb-1 text-[#26282c]">
-                          {m.label}
-                        </div>
-                      )}
-                      <div
-                        className="font-extrabold tracking-wide"
-                        style={{ color: m.special ? "#26282c" : "var(--contact-btn-text)" }}
-                      >
-                        {m.date.toUpperCase()}
-                      </div>
-                      {m.update ? (
-                        <button
-                          type="button"
-                          onClick={() => setActiveUpdate(m.update)}
-                          className="mt-3 inline-block underline font-semibold"
-                          style={{ color: "#26282c" }}
-                        >
-                          Read Update
-                        </button>
-                      ) : (
-                        <a
-                          href={m.href}
-                          className="mt-3 inline-block underline"
-                          style={{ color: m.special ? "#26282c" : "var(--btn-confirmation)" }}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          See Details
-                        </a>
-                      )}
+                  {m.label && (
+                    <div className="text-xs font-bold uppercase tracking-wide mb-1 text-[#26282c]">
+                      {m.label}
                     </div>
-                  ))}
+                  )}
+                  <div
+                    className="font-extrabold tracking-wide"
+                    style={{ color: m.special ? "#26282c" : "var(--contact-btn-text)" }}
+                  >
+                    {m.date.toUpperCase()}
+                  </div>
+                  <a
+                    href={m.href}
+                    className="mt-3 inline-block underline"
+                    style={{ color: m.special ? "#26282c" : "var(--btn-confirmation)" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    See Details
+                  </a>
                 </div>
-              </>
-            )}
+              ))}
+            </div>
           </div>
         </div>
       )}
