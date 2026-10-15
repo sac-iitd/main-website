@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import ClubCard from "../components/ui/ClubCard";
-import { ScrollText, Megaphone, HandHelping } from "lucide-react";
+import {
+  ScrollText,
+  Megaphone,
+  HandHelping,
+  FileText,
+  Mail,
+  MessageCircle,
+  CalendarClock,
+  MapPin,
+} from "lucide-react";
 
 // Import all images
 import backgroundImage from "../assets/activities/background_image.png";
@@ -111,6 +120,81 @@ function Home() {
                   {typedText}
                   <span className="animate-pulse">|</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vindhyachal Night Canteen Notice */}
+      <section className="px-4 my-10 w-100% md:py-1 md:px-5 lg:py-2 lg:px-20 flex flex-col justify-center items-center">
+        <div
+          className="shadow-lg rounded-xl overflow-hidden w-100% md:w-[80vw] lg:w-[60vw] border-t-4 border-[#FFD700]"
+          style={{ backgroundColor: "var(--card-bg)", color: "var(--text-color-secondary)" }}
+        >
+          <div className="py-6 px-5 md:py-8 md:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
+              <div>
+                <span className="inline-block text-xs md:text-sm font-semibold tracking-wide text-[#FFD700] uppercase mb-2">
+                  Notice
+                </span>
+                <h2 className="text-2xl md:text-3xl font-bold leading-tight">
+                  Request for Proposal: Vegetarian Night Canteen at Vindhyachal Hostel
+                </h2>
+              </div>
+              <div className="flex items-center gap-2 bg-[#FFD700] text-[#26282c] rounded-full px-4 py-2 text-sm md:text-base font-semibold whitespace-nowrap shrink-0">
+                <CalendarClock className="w-4 h-4 md:w-5 md:h-5" />
+                Apply by 29 Oct 2026, 5 PM
+              </div>
+            </div>
+
+            <p className="md:text-lg mb-4 opacity-90">
+              The Board for Hostel Management (BHM), IIT Delhi invites proposals from
+              eligible vendors and agencies to operate and maintain the Vegetarian Night
+              Canteen at Vindhyachal Hostel (Boys Hostel), 9:00 PM to 2:00 AM daily.
+            </p>
+
+            <p className="md:text-lg mb-6 opacity-90">
+              Eligible vendors must hold a valid FSSAI License, PAN, and GST
+              registration, with a minimum of 3 years of experience operating a canteen
+              or food outlet in an academic institution, hospital, college, or similar
+              setting. If these conditions are met, review the full RFP below, fill out
+              the application form (Annexure I), and submit it as a sealed proposal by
+              post or by hand, along with self-attested copies of all supporting
+              documents.
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+              <a
+                href="https://drive.google.com/file/d/1rcTSNypXC-rn6JIXgLV2TlchNnEhBp10/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-semibold bg-[#FFD700] text-[#26282c] hover:brightness-110 transition shrink-0"
+              >
+                <FileText className="w-4 h-4 md:w-5 md:h-5" />
+                View RFP &amp; Application Form
+              </a>
+              <div className="flex items-start gap-2.5 text-sm md:text-base">
+                <MapPin className="w-4 h-4 md:w-5 md:h-5 text-[#FFD700] mt-0.5 shrink-0" />
+                <span>
+                  <span className="font-semibold">Submit to:</span> The Assistant
+                  Registrar (SA), Board of Hostel Management, IIT Delhi, Hauz Khas, New
+                  Delhi 110016
+                </span>
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 pt-4 flex flex-col gap-2.5 text-sm md:text-base opacity-80">
+              <div className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-[#FFD700] mt-0.5 shrink-0" />
+                <span>Queries: arsa@admin.iitd.ac.in</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MessageCircle className="w-4 h-4 text-[#FFD700] mt-0.5 shrink-0" />
+                <span>
+                  Prasoon Raj, SAC Deputy General Secretary &middot; +91 99588 64594
+                  (WhatsApp only)
+                </span>
               </div>
             </div>
           </div>
