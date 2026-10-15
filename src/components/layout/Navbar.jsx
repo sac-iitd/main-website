@@ -81,6 +81,16 @@ function Navbar() {
                 Nexus
               </a>
             </li>
+            <li>
+              <a
+                href="https://sac.iitd.ac.in/MoveIITD/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full px-4 py-1.5 bg-[#FFD700] text-[#26282c] font-semibold text-sm sm:text-base hover:brightness-110 transition"
+              >
+                MoveIITD
+              </a>
+            </li>
           </ul>
           {/*
           <button
@@ -164,6 +174,17 @@ function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Nexus
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://sac.iitd.ac.in/MoveIITD/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-full px-4 py-1.5 bg-[#FFD700] text-[#26282c] font-semibold text-sm sm:text-base hover:brightness-110 transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              MoveIITD
             </a>
           </li>
         </ul>
