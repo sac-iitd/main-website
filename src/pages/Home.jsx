@@ -9,7 +9,6 @@ import {
   Mail,
   MessageCircle,
   CalendarClock,
-  MapPin,
 } from "lucide-react";
 
 // Import all images
@@ -159,29 +158,27 @@ function Home() {
               registration, with a minimum of 3 years of experience operating a canteen
               or food outlet in an academic institution, hospital, college, or similar
               setting. If these conditions are met, review the full RFP below, fill out
-              the application form (Annexure I), and submit it as a sealed proposal by
-              post or by hand, along with self-attested copies of all supporting
-              documents.
+              the application form, and email it along with the required documents to
+              arsa@admin.iitd.ac.in.
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <a
                 href="https://drive.google.com/file/d/1rcTSNypXC-rn6JIXgLV2TlchNnEhBp10/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-semibold bg-[#FFD700] text-[#26282c] hover:brightness-110 transition shrink-0"
+                className="flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-semibold bg-[#FFD700] text-[#26282c] hover:brightness-110 transition"
               >
                 <FileText className="w-4 h-4 md:w-5 md:h-5" />
                 View RFP &amp; Application Form
               </a>
-              <div className="flex items-start gap-2.5 text-sm md:text-base">
-                <MapPin className="w-4 h-4 md:w-5 md:h-5 text-[#FFD700] mt-0.5 shrink-0" />
-                <span>
-                  <span className="font-semibold">Submit to:</span> The Assistant
-                  Registrar (SA), Board of Hostel Management, IIT Delhi, Hauz Khas, New
-                  Delhi 110016
-                </span>
-              </div>
+              <a
+                href="mailto:arsa@admin.iitd.ac.in"
+                className="flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 font-semibold border border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700] hover:text-[#26282c] transition"
+              >
+                <Mail className="w-4 h-4 md:w-5 md:h-5" />
+                Email Application
+              </a>
             </div>
 
             <div className="border-t border-white/10 pt-4 flex flex-col gap-2.5 text-sm md:text-base opacity-80">
