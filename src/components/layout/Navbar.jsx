@@ -72,6 +72,11 @@ function Navbar() {
               </Link>
             </li>
             <li>
+              <Link to="/day-scholars" className={linkClass}>
+                Day Scholars
+              </Link>
+            </li>
+            <li>
               <a
                 href="https://sac.iitd.ac.in/nexus"
                 target="_blank"
@@ -136,7 +141,7 @@ function Navbar() {
       
       <div
         className={`md:hidden overflow-hidden  rounded transition-all duration-300 ease-in-out
-        ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+        ${menuOpen ? "max-h-[40rem] opacity-100" : "max-h-0 opacity-0"}
         bg-[var(--card-bg)] shadow-md`}
       >
         <ul className="flex flex-col gap-4 p-4">
@@ -163,6 +168,11 @@ function Navbar() {
           <li>
             <Link to="/contact" className={linkClass} onClick={() => setMenuOpen(false)}>
               Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/day-scholars" className={linkClass} onClick={() => setMenuOpen(false)}>
+              Day Scholars
             </Link>
           </li>
           <li>

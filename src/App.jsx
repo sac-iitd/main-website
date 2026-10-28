@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -7,6 +8,8 @@ import Activities from './pages/Activities';
 import Teams from './pages/Teams';  
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+
+const DayScholars = lazy(() => import("./pages/DayScholars"));
 import { ThemeProvider } from './contexts/ThemeContext';
 import './App.css';
 
@@ -23,6 +26,20 @@ function App() {
               <Route path="/activities" element={<Activities />} />
               <Route path="/teams" element={<Teams />} />
               <Route path="/contact" element={<Contact />} />
+              <Route
+                path="/day-scholars"
+                element={
+                  <Suspense
+                    fallback={
+                      <p className="text-center py-16 text-[var(--text-color-sub)]">
+                        Loading...
+                      </p>
+                    }
+                  >
+                    <DayScholars />
+                  </Suspense>
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
