@@ -111,10 +111,10 @@ function About() {
       { date: "20 MARCH'24", href: "https://drive.google.com/file/d/1jokDftXRXSz7PpgJJItHzMew4g27b-Cd/view?usp=sharing" },
     ],
     "2024-25": [
-      { date: "6 NOVEMBER'24", href: "https://drive.google.com/file/d/1h1FLPHYTti1Y3FBsyMAK8ByM28pI0aKa/view?usp=sharing" },
+      { date: "6 NOVEMBER'24", href: "https://drive.google.com/file/d/1xRmIieJqsqkwTkr9LSz_sguXeZAPVaoR/view?usp=sharing" },
     ],
     "2025-26": [
-      { date: "9 JANUARY'26", href: "https://drive.google.com/file/d/1TgF3T-fxl9sbjNfZyIay6SQKXN-K_fze/view?usp=sharing", special: true, label: "Special GBM" },
+      { date: "1 SEPTEMBER'26", href: "https://drive.google.com/file/d/1TgF3T-fxl9sbjNfZyIay6SQKXN-K_fze/view?usp=sharing", special: true, label: "Special GBM" },
       { date: "17 MARCH'26", href: "https://drive.google.com/file/d/1V98wjXYqYnz85-ysC310Uy6F37tLGcKn/view?usp=sharing" },
     ],
   };
